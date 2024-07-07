@@ -7,7 +7,7 @@ function buscarPelicula(){
 
 
 let movieInfo = document.getElementById('entradaTexto').value;
-
+putInformation.innerHTML="<p class='no'>Cargando...</p>";
 fetch(`${urlBase}query=${movieInfo}&api_key=${api_key}`)
 .then(response => response.json())
 .then(response =>showData(response.results))
@@ -15,10 +15,10 @@ fetch(`${urlBase}query=${movieInfo}&api_key=${api_key}`)
 
 function showData(response){
 console.log(response);
-
+putInformation.innerHTML="";
 
 let putInformation = document.getElementById('information');
-putInformation.innerHTML="<p class='no'>Cargando...</p>";
+
 
 if(response.length === 0){
 
@@ -26,7 +26,7 @@ putInformation.innerHTML="<p class='no'>We don't have found a movie...</p>";
 
 return
 }
- putInformation.innerHTML="";
+ 
 response.forEach(movies => {
    
 let miDiv = document.createElement('div')
