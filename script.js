@@ -7,17 +7,18 @@ function buscarPelicula(){
 
 
 let movieInfo = document.getElementById('entradaTexto').value;
+let putInformation = document.getElementById('information');
 putInformation.innerHTML="<p class='no'>Cargando...</p>";
 fetch(`${urlBase}query=${movieInfo}&api_key=${api_key}`)
 .then(response => response.json())
 .then(response =>showData(response.results))
 }
-
+putInformation.innerHTML="";
 function showData(response){
 console.log(response);
-putInformation.innerHTML="";
 
-let putInformation = document.getElementById('information');
+
+
 
 
 if(response.length === 0){
