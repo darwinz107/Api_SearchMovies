@@ -3,20 +3,22 @@ let api_key ='f5203282dd4adeec15901a27115cccd0';
 const urlBase = 'https://api.themoviedb.org/3/search/movie?'
 
 const urlImage = 'https://image.tmdb.org/t/p/w300'
+
+let putInformation = document.getElementById('information');
 function buscarPelicula(){
 
 
 let movieInfo = document.getElementById('entradaTexto').value;
-let putInformation = document.getElementById('information');
+
 putInformation.innerHTML="<p class='no'>Cargando...</p>";
 fetch(`${urlBase}query=${movieInfo}&api_key=${api_key}`)
 .then(response => response.json())
 .then(response =>showData(response.results))
 }
-putInformation.innerHTML="";
+
 function showData(response){
 console.log(response);
-
+putInformation.innerHTML="";
 
 
 
